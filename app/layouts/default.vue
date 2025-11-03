@@ -41,7 +41,7 @@ const links = [
   { label: 'Contacto', to: '/contact' }
 ]
 
-onMounted(async () => {
+const initAnimation = async () => {
   await nextTick()
 
   if (!menu.value || !logo.value) return
@@ -66,5 +66,9 @@ onMounted(async () => {
       stagger: 0.2
     }
   )
+}
+
+onMounted(() => {
+  initAnimation()
 })
 </script>
