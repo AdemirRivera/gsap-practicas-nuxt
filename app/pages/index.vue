@@ -1,7 +1,7 @@
 <template>
   <section class="hero">
     <span ref="title" class="title">
-      Soy Ademir. Hago contenido sobre desarrollo web
+      Soy Dev. Hago contenido sobre desarrollo web
     </span>
   </section>
 </template>
@@ -43,6 +43,42 @@ const initAnimation = async () => {
       },
       '-=0.25'
     )
+
+    char.addEventListener('mouseenter', charsHover)
+
+    function charsHover () {
+      gsap
+        .timeline()
+        .to(char, {
+          y: () => gsap.utils.random(-50, 50),
+          x: () => gsap.utils.random(-50, 50),
+          rotate: () => gsap.utils.random(-90, 90),
+          scale: () => gsap.utils.random(0.5, 1.5),
+          duration: 0.5,
+          ease: 'back.out',
+          color: `rgb(
+          ${gsap.utils.random(0, 255)},
+          ${gsap.utils.random(0, 255)},
+          ${gsap.utils.random(0, 255)}
+        )`,
+          onStart: () => {
+            char.removeEventListener('mouseenter', charsHover)
+          }
+        })
+        .to(char, {
+          y: 0,
+          x: 0,
+          rotate: 1,
+          scale: 1,
+          color: '#000',
+          delay: 1,
+          duration: 0.5,
+          ease: 'back.out',
+          onComplete: () => {
+            char.addEventListener('mouseenter', charsHover)
+          }
+        })
+    }
   })
 
   // gsap.from(splitInstance.chars, {
