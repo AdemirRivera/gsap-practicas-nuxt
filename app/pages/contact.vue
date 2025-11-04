@@ -1,31 +1,37 @@
 <template>
-  <section class="hero">
-    <h1 ref="title" class="title">Contacto</h1>
+  <section>
+    <div class="min-h-[100vh] bg-red-500"></div>
+    <div class="min-h-[100vh] bg-blue-500">
+      <div ref="box" class="h-[150px] w-[150px] bg-green-500"></div>
+    </div>
   </section>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
-import SplitType from 'split-type'
+import { ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
 
-const title = ref(null)
-let splitInstance = null
+const box = ref(null)
 
 onMounted(() => {
-  splitInstance = new SplitType(title.value, { types: 'chars, words' })
+  gsap.registerPlugin(ScrollTrigger)
 
-  gsap.from(splitInstance.chars, {
-    opacity: 0,
-    y: 40,
-    stagger: 0.05,
-    ease: 'back.out(1.7)',
-    duration: 0.8
+  gsap.to(box.value, {
+    x: 250,
+    // duration: 4,
+    scrollTrigger: {
+      trigger: box.value,
+      start: 'top 50%',
+      end: 'bottom 40%',
+      toggleClass: 'bg-yellow-500',
+      markers: true,
+      toggleActions: 'restart none none none',
+      scrub: 4
+      // scrub: true
+      // toggleActions: 'restart pause resume reverse'
+    }
   })
-})
-
-onBeforeUnmount(() => {
-  if (splitInstance) splitInstance.revert()
 })
 </script>
 

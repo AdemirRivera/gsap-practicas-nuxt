@@ -1,7 +1,9 @@
 <template>
-  <section class="hero">
-    <span ref="title" class="title">
-      Soy Dev. Hago contenido sobre desarrollo web
+  <section class="flex items-center justify-center min-h-[80vh] px-4">
+    <span ref="title" class="title max-w-xl text-center leading-relaxed">
+      Soy Dev. Hago contenido sobre desarrollo web, comparto consejos sobre
+      buenas prácticas, animaciones con GSAP, integración con Vue 3, y todo lo
+      relacionado con crear experiencias web modernas y fluidas.
     </span>
   </section>
 </template>
@@ -101,7 +103,7 @@ onMounted(() => {
 <style scoped>
 .title {
   color: #000;
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
   font-weight: 700;
 }

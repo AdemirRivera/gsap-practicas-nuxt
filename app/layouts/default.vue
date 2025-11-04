@@ -2,7 +2,7 @@
   <div class="min-h-screen flex flex-col">
     <!-- Navbar -->
     <header
-      class="bg-gray-800 text-white flex items-center justify-between px-6 py-4 shadow"
+      class="bg-gray-800 text-white flex items-center justify-between px-6 py-4 shadow h-[7vh]"
     >
       <!-- Logo / Nombre -->
       <h1 ref="logo" class="text-xl font-semibold">Mi App</h1>
@@ -22,7 +22,7 @@
     </header>
 
     <!-- Contenido principal -->
-    <main class="flex-1 bg-gray-100 p-8">
+    <main class="flex-1 bg-gray-100">
       <NuxtPage />
     </main>
   </div>
